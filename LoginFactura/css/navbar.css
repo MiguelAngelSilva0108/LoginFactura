@@ -18,8 +18,10 @@
 }
 
 .navbar-nav {
-    justify-content: flex-start;
-}
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
 
 .navbar-nav li.nav-item:hover {
     background-color: black;
@@ -32,3 +34,4 @@
     border-radius: 10px;
     -webkit-border-radius: 10px;
 }
+
