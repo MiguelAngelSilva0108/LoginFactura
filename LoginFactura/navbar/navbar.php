@@ -1,12 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
+        <a class="navbar-brand" href="./paginas/inicio.php">
         <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Logotipo_izzi_negativo.png" alt="Logo" width="120"
-            height="50" class="d-inline-block align-text-top" href="#" />
+            height="50" class="d-inline-block align-text-top" href="./paginas/inicio.php" />
+        </a>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
 
