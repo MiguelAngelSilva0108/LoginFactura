@@ -1,5 +1,43 @@
 <?php
 
+require '../database/database.php';
+
+$message = '';
+
+
+//Recibiendo numInt
+if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) && !empty($_POST['Celular']) && !empty($_POST['Email']) && !empty($_POST['password']) && !empty($_POST['Servicio']) && !empty($_POST['Calle']) && !empty($_POST['Colonia']) && !empty($_POST['NumExt']) && !empty($_POST['Municipio']) && !empty($_POST['CP']) && !empty($_POST['Estado'])) {
+    $sql = "INSERT INTO users (Nombres, AP, AM, Celular, Email, password, Servicio, Calle, Colonia, NumExt, NumInt, Municipio, CP, Estado) VALUES (:Nombres, :AP, :AM, :Celular, :Email, :password, :Servicio, :Calle, :Colonia, :NumExt, :NumInt, :Municipio, :CP, :Estado)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':Nombres', $_POST['Nombres']);
+    $stmt->bindParam(':AP', $_POST['AP']);
+    $stmt->bindParam(':AM', $_POST['AM']);
+    $stmt->bindParam(':Celular', $_POST['Celular']);
+    $stmt->bindParam(':Email', $_POST['Email']);
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':Servicio', $_POST['Servicio']);
+    $stmt->bindParam(':Calle', $_POST['Calle']);
+    $stmt->bindParam(':Colonia', $_POST['Colonia']);
+    $stmt->bindParam(':NumExt', $_POST['NumExt']);
+    if(!empty($_POST['NumInt'])) {
+        $stmt->bindParam(':NumInt', $_POST['NumInt']);
+    } else {
+        $stmt->bindValue(':NumInt', null, PDO::PARAM_NULL);
+    }
+    $stmt->bindParam(':Municipio', $_POST['Municipio']);
+    $stmt->bindParam(':CP', $_POST['CP']);
+    $stmt->bindParam(':Estado', $_POST['Estado']);
+
+    if ($stmt->execute()) {
+        $message = 'Usuario creado, inicie sesión';
+    } else {
+        $message = 'Sorry there must have been an issue creating your account';
+    }
+
+    
+}
+
 
 
 
@@ -28,6 +66,11 @@
                 height="50" class="rounded mx-auto d-block" alt="...">
         </a>
 
+        <?php if (!empty($message)): ?>
+            <p>
+                <?= $message ?>
+            </p>
+        <?php endif; ?>
 
         <p class="text-center" style="font-family: Poppins; font-size: 24px;">Registre todos sus datos.</p>
 
@@ -90,7 +133,7 @@
                                     <label htmlFor="floatingPassword">Confirma contraseña</label>
                                 </div>
                                 -->
-                                
+
                                 <!--Servicio deseado-->
                                 <div class="form-floating mb-3">
                                     <select class="form-select" name='Servicio' id="floatingSelect"
@@ -126,7 +169,7 @@
                                     </div>
                                 </div>
 
-                                <!--Número int y ext-->
+                                <!--Número ext e int-->
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating mb-3">
@@ -214,7 +257,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <span>¿Ya tienes una cuenta?</span> <a href="./login.php">Inicie Sesión</a>
+                                    <span>¿Ya tienes una cuenta?</span> <a href="http://localhost/LoginFactura/paginas/login.php">Inicie Sesión</a>
                                 </div>
                             </div>
                         </div>

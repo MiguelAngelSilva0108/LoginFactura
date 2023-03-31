@@ -14,7 +14,7 @@
                     <a class="nav-link active" aria-current="page" href="/LoginFactura/index.php">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./paginas/login.php">Iniciar sesión</a>
+                    <a class="nav-link" href="http://localhost/LoginFactura/paginas/login.php">Iniciar sesión</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

@@ -1,3 +1,8 @@
+<?php
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +23,9 @@
 <body>
     <?PHP require('../navbar/navbar.php');
     ?>
+    <?php if(!empty($message)): ?>
+      <p> <?= $message ?></p>
+    <?php endif; ?>
     <div class="Login">
 
         <!--Resto del código de la página de inicio de sesión-->
@@ -30,7 +38,7 @@
             En izzi, lo que más nos importa
             es tu conexión.
         </div>
-        <form>
+        <form action="login.php" method="post">
             <div class="row">
                 <div class="col-sm-4 offset-3 mt-5 mx-auto">
                     <div class="card pt=5">
@@ -42,7 +50,7 @@
                             <!--Botón de usuario-->
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="addon-wrapping">📧</span>
-                                <input type="text" class="form-control" name='usuario' placeholder="Correo electrónico"
+                                <input type="email" class="form-control" name='Email' placeholder="Correo electrónico"
                                     aria-label="Username" aria-describedby="addon-wrapping" />
                             </div>
                             <!--Botón de contraseña-->
@@ -52,7 +60,7 @@
                                     aria-label="password" aria-describedby="addon-wrapping" />
                             </div>
                             <div class="d-grid gap-2 mb-3">
-                                <button class="btn btn-primary" type="button">Iniciar sesión</button>
+                                <button class="btn btn-primary" type="submit" >Iniciar sesión</button>
                             </div>
 
 
