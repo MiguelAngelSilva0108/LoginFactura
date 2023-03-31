@@ -1,7 +1,25 @@
 <?php
+session_start();
+if (isset($_SESSION['user_id'])) {
+  header('Location: inicio.php');
+}
 
+require './database/database.php';
 
+$message = '';
+if (!empty($_POST['email']) && !empty($_POST['password'])) {
+  $records = $conn->prepare('SELECT id_users, email, password FROM users WHERE email = :email');
+  $records->bindParam(':email', $_POST['email']);
+  $records->execute();
+  $results = $records->fetch(PDO::FETCH_ASSOC);
 
+  if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
+    $_SESSION['user_id'] = $results['id_users'];
+    header('Location: inicio.php');
+  } else {
+    $message = 'Sus credenciales son erróneas';
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,9 +41,9 @@
 <body>
     <?PHP require('../navbar/navbar.php');
     ?>
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
-    <?php endif; ?>
+    <?php if (!empty($message)): ?>
+    <p><?= $message ?></p>
+  <?php endif; ?>
     <div class="Login">
 
         <!--Resto del código de la página de inicio de sesión-->

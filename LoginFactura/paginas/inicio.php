@@ -1,5 +1,21 @@
 <?php
-  
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+}
+
+require './database/database.php';
+
+$records = $conn->prepare('SELECT id_users, email, password FROM users WHERE id_users = :id_users');
+$records->bindParam(':id_users', $_SESSION['user_id']);
+$records->execute();
+$results = $records->fetch(PDO::FETCH_ASSOC);
+
+$user = null;
+
+if (count($results) > 0) {
+    $user = $results;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +29,7 @@
 </head>
 <?PHP require('./navbar/navbar.php');
 ?>
-<link rel="stylesheet" href="./css/bootstrap.min.css"/>
+<link rel="stylesheet" href="./css/bootstrap.min.css" />
 <link rel="stylesheet" href="./css/navbar.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -26,10 +42,19 @@
 
 <body>
     <div>
+
         <div class="img-container">
             <img class="img-fluid"
                 src="https://izzi.telmov.mx/pub/media/amasty/webp/wysiwyg/Banners_Vtex_1290x480_1_-10.webp" alt="..." />
         </div>
+        <?php if (!empty($user)): ?>
+            <p>Bienvenido
+                <?= $user['email'] ?>
+            </p>
+            <form action="/logout.php" method="POST">
+                <input type="submit" value="Cerrar sesión">
+            </form>
+        <?php endif; ?>
     </div>
 </body>
 
