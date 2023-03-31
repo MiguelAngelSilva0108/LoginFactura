@@ -1,16 +1,18 @@
 <?php
 
-  require '../database/database.php';
+require '../database/database.php';
 
-  $message = '';
+$message = '';
 
-  if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) && !empty($_POST['Celular']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['Servicio']) && !empty($_POST['Calle']) && !empty($_POST['Colonia']) && !empty($_POST['NumExt']) && !empty($_POST['Municipio']) && !empty($_POST['CP']) && !empty($_POST['Estado'])) {
+
+
+if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) && !empty($_POST['Celular']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['Servicio']) && !empty($_POST['Calle']) && !empty($_POST['Colonia']) && !empty($_POST['NumExt']) && !empty($_POST['Municipio']) && !empty($_POST['CP']) && !empty($_POST['Estado'])) {
 
     $sql = "INSERT INTO users (Nombres, AP, AM, Celular, email, password, Servicio, Calle, Colonia, NumInt, NumExt, Municipio, CP, Estado) VALUES (:Nombres, :AP, :AM, :Celular, :email, :password, :Servicio, :Calle, :Colonia, :NumInt, :NumExt, :Municipio, :CP, :Estado)";
     $stmt = $conn->prepare($sql);
-    
+
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-  
+
     $stmt->bindParam(':Nombres', $_POST['Nombres']);
     $stmt->bindParam(':AP', $_POST['AP']);
     $stmt->bindParam(':AM', $_POST['AM']);
@@ -25,14 +27,14 @@
     $stmt->bindParam(':Municipio', $_POST['Municipio']);
     $stmt->bindParam(':CP', $_POST['CP']);
     $stmt->bindParam(':Estado', $_POST['Estado']);
-  
+
     if ($stmt->execute()) {
-      $message = 'Successfully created new user';
+        $message = 'Successfully created new user';
     } else {
-      $message = 'Sorry there must have been an issue creating your account';
+        $message = 'Sorry there must have been an issue creating your account';
     }
-  }
-  
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -55,7 +57,8 @@
     <?PHP require('../navbar/navbar.php'); ?>
     <div>
         <a href="/LoginFactura/index.php">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Logotipo_izzi_negativo.png" width="120" height="50" class="rounded mx-auto d-block" alt="...">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Logotipo_izzi_negativo.png" width="120"
+                height="50" class="rounded mx-auto d-block" alt="...">
         </a>
 
 
@@ -74,28 +77,26 @@
                                 <!--Nombres-->
                                 <div class="form-floating mb-3">
                                     <input type="text" name='Nombres' class="form-control" id="floatingInput"
-                                        placeholder="name@example.com"  
-                                        required />
+                                        placeholder="name@example.com" required />
                                     <label htmlFor="floatingInput">Nombres</label>
                                 </div>
                                 <!--AP-->
                                 <div class="form-floating mb-3">
                                     <input type="text" name='AP' class="form-control" id="floatingInput"
-                                        placeholder="name@example.com"  
-                                        required />
+                                        placeholder="name@example.com" required />
                                     <label htmlFor="floatingInput">Apellido Paterno</label>
                                 </div>
                                 <!--AM-->
                                 <div class="form-floating mb-3">
                                     <input type="text" name='AM' class="form-control" id="floatingInput"
-                                        placeholder="name@example.com"  />
+                                        placeholder="name@example.com" />
                                     <label htmlFor="floatingInput">Apellido Materno</label>
                                 </div>
                                 <!--Celular-->
                                 <div>
                                     <div class="form-floating mb-3">
                                         <input type="text" name="Celular" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com"  />
+                                            placeholder="name@example.com" />
                                         <label htmlFor="floatingInput">Teléfono Celular</label>
                                     </div>
                                 </div>
@@ -103,7 +104,7 @@
                                 <!--Email-->
                                 <div class="form-floating mb-3">
                                     <input type="email" name='Email' class="form-control" id="floatingInputValue"
-                                        placeholder="name@example.com"  />
+                                        placeholder="name@example.com" />
                                     <label htmlFor="floatingInputValue">Correo electrónico</label>
                                 </div>
 
@@ -115,18 +116,19 @@
                                     <label htmlFor="floatingPassword">Contraseña</label>
                                 </div>
 
-                                <!--Botón de confirmar contraseña-->
+                                <!--Botón de confirmar contraseña
                                 <div class="form-floating mb-3">
                                     <input type="password" name='confirmpassword' class="form-control"
                                         id="floatingPassword" placeholder="Password" />
                                     <label htmlFor="floatingPassword">Confirma contraseña</label>
                                 </div>
-
+                                -->
+                                
                                 <!--Servicio deseado-->
                                 <div class="form-floating mb-3">
                                     <select class="form-select" name='Servicio' id="floatingSelect"
                                         aria-label="Floating label select example"
-                                         defaultValue="Seleccione un Servicio">
+                                        defaultValue="Seleccione un Servicio">
                                         <option value="">Seleccione un Servicio</option>
                                         <option value="Internet + Telefonía 30 MB">Internet + Telefonía 30 MB</option>
                                         <option value="Internet + Telefonía 50 MB">Internet + Telefonía 50 MB</option>
@@ -144,16 +146,14 @@
                                     <div class="col-md">
                                         <div class="form-floating mb-3">
                                             <input type="text" name='Calle' class="form-control" id="floatingInputGrid"
-                                                placeholder="name@example.com" 
-                                                 />
+                                                placeholder="name@example.com" />
                                             <label htmlFor="floatingInputGrid">Calle</label>
                                         </div>
                                     </div>
                                     <div class="col-md">
                                         <div class="form-floating mb-3">
                                             <input type="text" name='Colonia' class="form-control"
-                                                id="floatingInputGrid" placeholder="name@example.com"
-                                                />
+                                                id="floatingInputGrid" placeholder="name@example.com" />
                                             <label htmlFor="floatingInputGrid">Colonia</label>
                                         </div>
                                     </div>
@@ -164,14 +164,14 @@
                                     <div class="col-md">
                                         <div class="form-floating mb-3">
                                             <input type="text" name='NumExt' class="form-control" id="floatingInputGrid"
-                                                placeholder="name@example.com"  />
+                                                placeholder="name@example.com" />
                                             <label htmlFor="floatingInputGrid">Num ext</label>
                                         </div>
                                     </div>
                                     <div class="col-md">
                                         <div class="form-floating mb-3">
                                             <input type="text" name='NumInt' class="form-control" id="floatingInputGrid"
-                                                placeholder="name@example.com"  />
+                                                placeholder="name@example.com" />
                                             <label htmlFor="floatingInputGrid">Num int</label>
                                         </div>
                                     </div>
@@ -182,7 +182,7 @@
                                     <div class="col-md">
                                         <div class="form-floating mb-3">
                                             <input type="text" name='Municipio' class="form-control"
-                                                id="floatingInputGrid" placeholder="name@example.com"/>
+                                                id="floatingInputGrid" placeholder="name@example.com" />
                                             <label htmlFor="floatingInputGrid">Alcaldia o Municipio</label>
                                         </div>
                                     </div>
@@ -198,8 +198,7 @@
                                 <!--Estado*-->
                                 <div class="form-floating mb-3">
                                     <select class="form-select" name='Estado' id="floatingSelect"
-                                        aria-label="Floating label select example" 
-                                         defaultValue="">
+                                        aria-label="Floating label select example" defaultValue="">
 
                                         <option value="">Seleccione un Estado</option>
                                         <option value="Aguascalientes">Aguascalientes</option>
@@ -234,7 +233,7 @@
                                         <option value="Veracruz">Veracruz</option>
                                         <option value="Yucatán">Yucatán</option>
                                         <option value="Zacatecas">Zacatecas</option>
-                                    </select> 
+                                    </select>
                                     <label For="floatingSelect">Estado</label>
                                 </div>
 
@@ -242,9 +241,9 @@
                                 <!--Fin de formulario-->
 
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary btn-registrar">
-                                        Registrar
-                                    </button>
+
+                                    <button type="submit" class="btn btn-primary">Registrar</button>
+
                                 </div>
 
                                 <div class="card-footer">
