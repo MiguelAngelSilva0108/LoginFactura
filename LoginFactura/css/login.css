@@ -9,7 +9,7 @@
   width: 320px;
   margin: 30px auto 0;
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
   font-weight: normal;
   line-height: 1.5;
@@ -17,7 +17,7 @@
 }
 
 .card-header {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
   font-weight: normal;
   text-align: center;
@@ -27,7 +27,7 @@
 }
 
 .form-control {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 15px;
 }
 
@@ -47,11 +47,20 @@
 
 .input-group{
   margin-top: 25px;
+  text-align: center; /* agregado para centrar el botón */
 }
 
 .btn-group{
   margin-top: 15px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
-
+.form-signin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
