@@ -6,8 +6,8 @@ $message = '';
 
 
 //Recibiendo numInt
-if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) && !empty($_POST['Celular']) && !empty($_POST['Email']) && !empty($_POST['password']) && !empty($_POST['Servicio']) && !empty($_POST['Calle']) && !empty($_POST['Colonia']) && !empty($_POST['NumExt']) && !empty($_POST['Municipio']) && !empty($_POST['CP']) && !empty($_POST['Estado'])) {
-    $sql = "INSERT INTO users (Nombres, AP, AM, Celular, Email, password, Servicio, Calle, Colonia, NumExt, NumInt, Municipio, CP, Estado) VALUES (:Nombres, :AP, :AM, :Celular, :Email, :password, :Servicio, :Calle, :Colonia, :NumExt, :NumInt, :Municipio, :CP, :Estado)";
+if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) && !empty($_POST['Celular']) && !empty($_POST['Email']) && !empty($_POST['password']) && !empty($_POST['Servicio']) && !empty($_POST['Calle']) && !empty($_POST['Colonia']) && !empty($_POST['NumExt']) && !empty($_POST['Municipio']) && !empty($_POST['CP']) && !empty($_POST['Estado']) && !empty($_POST['RFC']) && !empty($_POST['Calle_Fiscal']) && !empty($_POST['Colonia_Fiscal']) && !empty($_POST['NumExt_Fiscal']) && !empty($_POST['Municipio_Fiscal']) && !empty($_POST['CP_Fiscal']) && !empty($_POST['Estado_Fiscal'])) {
+    $sql = "INSERT INTO users (Nombres, AP, AM, Celular, Email, password, Servicio, Calle, Colonia, NumExt, NumInt, Municipio, CP, Estado, RFC, Calle_Fiscal, Colonia_Fiscal, NumExt_Fiscal, NumInt_Fiscal, Municipio_Fiscal, CP_Fiscal, Estado_Fiscal) VALUES (:Nombres, :AP, :AM, :Celular, :Email, :password, :Servicio, :Calle, :Colonia, :NumExt, :NumInt, :Municipio, :CP, :Estado, :RFC, :Calle_Fiscal, :Colonia_Fiscal, :NumExt_Fiscal, :NumInt_Fiscal, :Municipio_Fiscal, :CP_Fiscal, :Estado_Fiscal)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':Nombres', $_POST['Nombres']);
     $stmt->bindParam(':AP', $_POST['AP']);
@@ -28,6 +28,19 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
     $stmt->bindParam(':Municipio', $_POST['Municipio']);
     $stmt->bindParam(':CP', $_POST['CP']);
     $stmt->bindParam(':Estado', $_POST['Estado']);
+    //FISCAL
+    $stmt->bindParam(':RFC', $_POST['RFC']);
+    $stmt->bindParam(':Calle_Fiscal', $_POST['Calle_Fiscal']);
+    $stmt->bindParam(':Colonia_Fiscal', $_POST['Colonia_Fiscal']);
+    $stmt->bindParam(':NumExt_Fiscal', $_POST['NumExt_Fiscal']);
+    if(!empty($_POST['NumInt_Fiscal'])) {
+        $stmt->bindParam(':NumInt_Fiscal', $_POST['NumInt_Fiscal']);
+    } else {
+        $stmt->bindValue(':NumInt_Fiscal', null, PDO::PARAM_NULL);
+    }
+    $stmt->bindParam(':Municipio_Fiscal', $_POST['Municipio_Fiscal']);
+    $stmt->bindParam(':CP_Fiscal', $_POST['CP_Fiscal']);
+    $stmt->bindParam(':Estado_Fiscal', $_POST['Estado_Fiscal']);
 
     if ($stmt->execute()) {
         $message = 'Usuario creado, inicie sesión';
@@ -247,6 +260,112 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
                                     <label For="floatingSelect">Estado</label>
                                 </div>
 
+                                 <!--RFC-->
+                                 <div class="form-floating mb-3">
+                                    <input type="text" name='RFC' class="form-control" id="floatingInput"
+                                        placeholder="name@example.com" required />
+                                    <label htmlFor="floatingInput">RFC</label>
+                                </div>
+                                <div class="card-header">
+                                DATOS FISCALES
+                            </div>
+                                <!--Dirección FISCAL-->
+                                <!--Calle y Colonia-->
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name='Calle_Fiscal' class="form-control" id="floatingInputGrid"
+                                                placeholder="name@example.com" />
+                                            <label htmlFor="floatingInputGrid">Calle</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name='Colonia_Fiscal' class="form-control"
+                                                id="floatingInputGrid" placeholder="name@example.com" />
+                                            <label htmlFor="floatingInputGrid">Colonia</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Número ext e int-->
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name='NumExt_Fiscal' class="form-control" id="floatingInputGrid"
+                                                placeholder="name@example.com" />
+                                            <label htmlFor="floatingInputGrid">Num ext</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name='NumInt_Fiscal' class="form-control" id="floatingInputGrid"
+                                                placeholder="name@example.com" />
+                                            <label htmlFor="floatingInputGrid">Num int</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Municipio y CP-->
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name='Municipio_Fiscal' class="form-control"
+                                                id="floatingInputGrid" placeholder="name@example.com" />
+                                            <label htmlFor="floatingInputGrid">Alcaldia o Municipio</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name='CP_Fiscal' class="form-control" id="floatingInputGrid"
+                                                placeholder="name@example.com" />
+                                            <label htmlFor="floatingInputGrid">C.P.</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Estado*-->
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" name='Estado_Fiscal' id="floatingSelect"
+                                        aria-label="Floating label select example" defaultValue="">
+
+                                        <option value="">Seleccione un Estado</option>
+                                        <option value="Aguascalientes">Aguascalientes</option>
+                                        <option value="Baja California">Baja California</option>
+                                        <option value="Baja California Sur">Baja California Sur</option>
+                                        <option value="Campeche">Campeche</option>
+                                        <option value="Chiapas">Chiapas</option>
+                                        <option value="Chihuahua">Chihuahua</option>
+                                        <option value="Ciudad de México">Ciudad de México</option>
+                                        <option value="Coahuila">Coahuila</option>
+                                        <option value="Colima">Colima</option>
+                                        <option value="Durango">Durango</option>
+                                        <option value="Guanajuato">Guanajuato</option>
+                                        <option value="Guerrero">Guerrero</option>
+                                        <option value="Hidalgo">Hidalgo</option>
+                                        <option value="Jalisco">Jalisco</option>
+                                        <option value="México">México</option>
+                                        <option value="Michoacán">Michoacán</option>
+                                        <option value="Morelos">Morelos</option>
+                                        <option value="Nayarit">Nayarit</option>
+                                        <option value="Nuevo León">Nuevo León</option>
+                                        <option value="Oaxaca">Oaxaca</option>
+                                        <option value="Puebla">Puebla</option>
+                                        <option value="Querétaro">Querétaro</option>
+                                        <option value="Quintana Roo">Quintana Roo</option>
+                                        <option value="San Luis Potosí">San Luis Potosí</option>
+                                        <option value="Sinaloa">Sinaloa</option>
+                                        <option value="Sonora">Sonora</option>
+                                        <option value="Tabasco">Tabasco</option>
+                                        <option value="Tamaulipas">Tamaulipas</option>
+                                        <option value="Tlaxcala">Tlaxcala</option>
+                                        <option value="Veracruz">Veracruz</option>
+                                        <option value="Yucatán">Yucatán</option>
+                                        <option value="Zacatecas">Zacatecas</option>
+                                    </select>
+                                    <label For="floatingSelect">Estado</label>
+                                </div>
+
 
                                 <!--Fin de formulario-->
 
@@ -273,8 +392,4 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
 </html>
 
 
-Agregas los ID, por favor, y checa que no choque con mi código, por favor
-Users: Nombres, AP, AM, Celular, Email, password, Servicio, Calle, Colonia, NumExt, NumInt, Municipio, CP, Estado
-Direccion_Fiscal: Calle_Fiscal, Colonia_Fiscal, NumExt_Fiscal, NumInt_Fiscal, Municipio_Fiscal, CP_Fiscal, Estado_Fiscal
-Servicio: Servicio, Valor
-Factura: Mes, Total (viene de valor en servicio), archivo
+
