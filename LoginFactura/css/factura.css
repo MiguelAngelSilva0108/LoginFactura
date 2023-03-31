@@ -1,10 +1,10 @@
 .img-logo {
-    margin-top: 10px;
+    margin-top: 15px;
     float: left;
   }
-
-  table {
-    width: 100%;
-  }
-  
+  .nombre-apellido {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+}
   
