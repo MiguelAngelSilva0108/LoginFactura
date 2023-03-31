@@ -52,7 +52,7 @@ if (isset($_SESSION['user_id'])) {
                         Facturación
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Crear Factura</a></li>
+                        <li><a class="dropdown-item" href="./paginas/crearfactura.php">Crear Factura</a></li>
                         <li><a class="dropdown-item" href="#">Consultar Factura</a></li>
                     </ul>
                 </li>

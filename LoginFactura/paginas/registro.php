@@ -271,3 +271,10 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
 </body>
 
 </html>
+
+
+Agregas los ID, por favor, y checa que no choque con mi código, por favor
+Users: Nombres, AP, AM, Celular, Email, password, Servicio, Calle, Colonia, NumExt, NumInt, Municipio, CP, Estado
+Direccion_Fiscal: Calle_Fiscal, Colonia_Fiscal, NumExt_Fiscal, NumInt_Fiscal, Municipio_Fiscal, CP_Fiscal, Estado_Fiscal
+Servicio: Servicio, Valor
+Factura: Mes, Total (viene de valor en servicio), archivo
