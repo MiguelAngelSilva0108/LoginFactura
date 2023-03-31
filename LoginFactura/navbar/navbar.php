@@ -1,68 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-.navbar {
-    background-color: white;
-    margin-left: auto;
-}
-
-.navbar a {
-    color: #000000;
-}
-
-.navbar-nav li a {
-    font-size: 1.2rem;
-}
-
-.navbar-custom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar-nav {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-
-.navbar-nav li.nav-item:hover {
-    background-color: black;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-}
-
-.navbar-nav li.nav-item:hover a.nav-link {
-    color: white;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-}
-
-@media (max-width: 991.98px) {
-    .navbar-nav .nav-link {
-      padding: 0.5rem 2rem;
-      margin: 0.25rem;
-      color: #fff;
-      font-weight: 500;
-      transition: all 0.2s ease-in-out;
-      border-radius: 0.5rem;
-      color: #000;
-    }
-    .navbar-nav .nav-link:hover {
-      background-color: #212529;
-      border-radius: 0.5rem;
-    }
-  }
-
-  .navbar-brand,
-.navbar-nav .nav-link {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-}
-
-.dropdown-menu {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-}
-  
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/LoginFactura/index.php">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Logotipo_izzi_negativo.png" alt="Logo"
+                width="120" height="50" class="d-inline-block align-text-top" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/LoginFactura/index.php">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./paginas/login.php">Iniciar sesión</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Facturación
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Crear Factura</a></li>
+                        <li><a class="dropdown-item" href="#">Consultar Factura</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 
 
