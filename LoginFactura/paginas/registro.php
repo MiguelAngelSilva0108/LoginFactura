@@ -17,12 +17,8 @@
 <body>
     <?PHP require('../navbar/navbar.php'); ?>
     <div>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-        </style>
-        <a href="">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Logotipo_izzi_negativo.png" alt="Logo"
-                width="120" height="50" class="d-inline-block align-text-top" />
+        <a href="/LoginFactura/index.php">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Logotipo_izzi_negativo.png" width="120" height="50" class="rounded mx-auto d-block" alt="...">
         </a>
 
 
@@ -32,7 +28,7 @@
         <div class='registro'>
             <form>
                 <div class="row">
-                    <div class="col-sm-6 offset-3 mt-5 mx-auto">
+                    <div class="col-sm-6 col-lg-3 offset-15 mt-5 mx-auto">
                         <div class="card pt=5">
                             <div class="card-header">
                                 ¡Sólo te tomará un par de minutos!
@@ -62,7 +58,7 @@
                                 <div>
                                     <div class="form-floating mb-3">
                                         <input type="text" name="Celular" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com" value={celular} />
+                                            placeholder="name@example.com"  />
                                         <label htmlFor="floatingInput">Teléfono Celular</label>
                                     </div>
                                 </div>
@@ -201,23 +197,21 @@
                                         <option value="Veracruz">Veracruz</option>
                                         <option value="Yucatán">Yucatán</option>
                                         <option value="Zacatecas">Zacatecas</option>
-                                    </select>
-                                   
-                                    <label htmlFor="floatingSelect">Estado</label>
+                                    </select> 
+                                    <label For="floatingSelect">Estado</label>
                                 </div>
 
 
                                 <!--Fin de formulario-->
 
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">
+                                    <button type="button" class="btn btn-primary btn-registrar">
                                         Registrar
                                     </button>
                                 </div>
 
                                 <div class="card-footer">
-                                    <span>¿Ya tienes una cuenta?</span>
-                                    <Link to='/Login'>Inicia Sesión</Link>
+                                    <span>¿Ya tienes una cuenta?</span> <a href="./login.php">Inicie Sesión</a>
                                 </div>
                             </div>
                         </div>
