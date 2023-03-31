@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,9 @@
     <title>Iniciar sesión</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
 </head>
-<link rel="stylesheet" href="./css/bootstrap.min.css"/>
-<link rel="stylesheet" href="./css/login.css">
-<link rel="stylesheet" href="./css/navbar.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css"/>
+<link rel="stylesheet" href="../css/login.css">
+<link rel="stylesheet" href="../css/navbar.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Dependencias de jQuery y Popper.js -->
