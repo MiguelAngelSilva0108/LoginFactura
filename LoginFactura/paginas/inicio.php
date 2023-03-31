@@ -13,12 +13,17 @@
 ?>
 <link rel="stylesheet" href="./css/bootstrap.min.css"/>
 <link rel="stylesheet" href="./css/navbar.css">
+<!-- Dependencias de jQuery y Popper.js -->
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="./js/popper.min.js"></script>
 
+<!-- Scripts de Bootstrap -->
+<script src="./js/bootstrap.min.js"></script>
 
 <body>
     <div>
-        <div className="img-container">
-            <img className="img-fluid"
+        <div class="img-container">
+            <img class="img-fluid"
                 src="https://izzi.telmov.mx/pub/media/amasty/webp/wysiwyg/Banners_Vtex_1290x480_1_-10.webp" alt="..." />
         </div>
     </div>
