@@ -7,7 +7,8 @@ if (isset($_SESSION['user_id'])) {
     header('Location: /LoginFactura/index.php');
 }
 
-require '../database/database.php';
+require('../database/database.php');
+
 
 
 if (!empty($_POST['Email']) && !empty($_POST['password'])) {
@@ -19,11 +20,13 @@ if (!empty($_POST['Email']) && !empty($_POST['password'])) {
 
     $message = '';
 
-    if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
+    if (is_array($results) && count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
         $_SESSION['user_id'] = $results['id_users'];
-        header('Locationn: /LoginFactura/index.php');
+        $message = '<span style="color: green; font-weight: bold; font-family: Poppins; display: block; margin-top: 30px; text-align: center;">Inicio de sesión exitoso, genere su factura</span>';
+        header('Location: /LoginFactura/index.php');
+        exit;
     } else {
-        $message = 'Sorry, those credentials do not match';
+        $message = '<span style="color: red; font-weight: bold; font-family: Poppins; display: block; margin-top: 30px; text-align: center;">Las credenciales no son correctas</span>';
     }
 
 }

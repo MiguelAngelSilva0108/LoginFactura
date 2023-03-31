@@ -1,7 +1,11 @@
 <?php
-session_start();
+if(!isset($_SESSION)) {
+    session_start();
+}
 
-require '/LoginFactura/database/database.php';
+
+require __DIR__ . '/../database/database.php';
+
 
 if (isset($_SESSION['user_id'])) {
     $records = $conn->prepare('SELECT id_users, Email, password FROM users WHERE id_users = :id_users');
@@ -41,16 +45,7 @@ if (isset($_SESSION['user_id'])) {
                 <li class="nav-item">
                     <a class="nav-link" href="/LoginFactura/paginas/logout.php">Cerrar Sesión</a>
                 </li>
-                <?php else: ?>
-                    <li class="nav-item">
-                    <a class="nav-link" href="/LoginFactura/paginas/login.php">Iniciar sesión</a>
-                </li>
-                <?php endif; ?>
 
-
-
-
-                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,6 +56,18 @@ if (isset($_SESSION['user_id'])) {
                         <li><a class="dropdown-item" href="#">Consultar Factura</a></li>
                     </ul>
                 </li>
+
+                <?php else: ?>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/LoginFactura/paginas/login.php">Iniciar sesión</a>
+                </li>
+                <?php endif; ?>
+
+
+
+
+                
+                
             </ul>
         </div>
     </div>
