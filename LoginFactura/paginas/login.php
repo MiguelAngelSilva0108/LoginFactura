@@ -5,13 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
 </head>
+<link rel="stylesheet" href="./css/bootstrap.min.css"/>
+<link rel="stylesheet" href="./css/registro.css">
+<link rel="stylesheet" href="./css/navbar.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Dependencias de jQuery y Popper.js -->
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="./js/popper.min.js"></script>
+
+<!-- Scripts de Bootstrap -->
+<script src="./js/bootstrap.min.js"></script>
 <body>
-<?PHP require('./navbar/navbar.php');
+<?PHP require('../navbar/navbar.php');
 ?>
 <div class="Login">
 
-            {/* Resto del código de la página de inicio de sesión */}
+            <!--Resto del código de la página de inicio de sesión-->
 
             <div class='imagen'>
                 <img src="https://queplan.mx/sites/default/files/inline-images/izzi-1.png" class="img-fluid" alt="Logo" width="320" height="206.5"></img>
@@ -39,7 +51,7 @@
                                         placeholder="Correo electrónico"
                                         aria-label="Username"
                                         aria-describedby="addon-wrapping"
-                                        onChange={handleChange}
+                                      
                                     />
                                 </div>
                                 <!--Botón de contraseña-->
@@ -52,14 +64,14 @@
                                         placeholder="Contraseña"
                                         aria-label="password"
                                         aria-describedby="addon-wrapping"
-                                        onChange={handleChange}
+                                       
                                     />
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="submit" class="btn btn-primary" >Iniciar Sesión</button>
                                 </div>
                                 <div class="card-footer">
-                                    <span>¿No tienes cuenta?</span> <Link to='/Registro'>Regístrese</Link>
+                                    <span>¿No tienes cuenta?</span> <a href="./registro.php">Regístrate</a>
                                 </div>
                             </div>
                         </div>
