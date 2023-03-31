@@ -6,8 +6,9 @@ $message = '';
 
 
 if (!empty($_POST['RFC']) && !empty($_POST['Calle_Fiscal']) && !empty($_POST['Colonia_Fiscal']) && !empty($_POST['NumExt_Fiscal']) && !empty($_POST['Municipio_Fiscal']) && !empty($_POST['CP_Fiscal']) && !empty($_POST['Estado_Fiscal'])) {
-    $sql = "INSERT INTO direccion_fiscal (Calle_Fiscal, Colonia_Fiscal, NumExt_Fiscal, NumInt_Fiscal, Municipio_Fiscal, CP_Fiscal, Estado_Fiscal) VALUES (:Calle_Fiscal, :Colonia_Fiscal, :NumExt_Fiscal, :NumInt_Fiscal, :Municipio_Fiscal, :CP_Fiscal, :Estado_Fiscal)";
+    $sql = "INSERT INTO users (RFC, Calle_Fiscal, Colonia_Fiscal, NumExt_Fiscal, NumInt_Fiscal, Municipio_Fiscal, CP_Fiscal, Estado_Fiscal) VALUES (:RFC, :Calle_Fiscal, :Colonia_Fiscal, :NumExt_Fiscal, :NumInt_Fiscal, :Municipio_Fiscal, :CP_Fiscal, :Estado_Fiscal)";
     $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':RFC', $_POST['RFC']);
     $stmt->bindParam(':Calle_Fiscal', $_POST['Calle_Fiscal']);
     $stmt->bindParam(':Colonia_Fiscal', $_POST['Colonia_Fiscal']);
     $stmt->bindParam(':NumExt_Fiscal', $_POST['NumExt_Fiscal']);
