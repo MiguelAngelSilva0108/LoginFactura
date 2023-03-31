@@ -1,6 +1,34 @@
 <?php
 
 
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    header('Location: /LoginFactura/index.php');
+}
+
+require '../database/database.php';
+
+
+if (!empty($_POST['Email']) && !empty($_POST['password'])) {
+    $records = $conn->prepare('SELECT id_users, Email, password FROM users WHERE Email = :Email');
+    $records->bindParam(':Email', $_POST['Email']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+
+    $message = '';
+
+    if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
+        $_SESSION['user_id'] = $results['id_users'];
+        header('Locationn: /LoginFactura/index.php');
+    } else {
+        $message = 'Sorry, those credentials do not match';
+    }
+
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -23,55 +51,58 @@
 <body>
     <?PHP require('../navbar/navbar.php');
     ?>
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
+
+
+    <?php if (!empty($message)): ?>
+        <p>
+            <?= $message ?>
+        </p>
     <?php endif; ?>
-    <div class="Login">
 
-        <!--Resto del código de la página de inicio de sesión-->
+    <!--Resto del código de la página de inicio de sesión-->
 
-        <div class='imagen'>
-            <img src="https://queplan.mx/sites/default/files/inline-images/izzi-1.png" class="img-fluid" alt="Logo"
-                width="320" height="206.5"></img>
-        </div>
-        <div class='texto'>
-            En izzi, lo que más nos importa
-            es tu conexión.
-        </div>
-        <form action="login.php" method="post">
-            <div class="row">
-                <div class="col-sm-4 offset-3 mt-5 mx-auto">
-                    <div class="card pt=5">
-                        <div class="card-header">
-                            Inicia sesión con tus credenciales izzi
-                            para extenderte tu factura
+    <div class='imagen'>
+        <img src="https://queplan.mx/sites/default/files/inline-images/izzi-1.png" class="img-fluid" alt="Logo"
+            width="320" height="206.5"></img>
+    </div>
+    <div class='texto'>
+        En izzi, lo que más nos importa
+        es tu conexión.
+    </div>
+    <form action="login.php" method="post">
+        <div class="row">
+            <div class="col-sm-4 offset-3 mt-5 mx-auto">
+                <div class="card pt=5">
+                    <div class="card-header">
+                        Inicia sesión con tus credenciales izzi
+                        para extenderte tu factura
+                    </div>
+                    <div class="card-body">
+                        <!--Botón de usuario-->
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">📧</span>
+                            <input type="email" class="form-control" name='Email' placeholder="Correo electrónico"
+                                aria-label="Username" aria-describedby="addon-wrapping" />
                         </div>
-                        <div class="card-body">
-                            <!--Botón de usuario-->
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping">📧</span>
-                                <input type="email" class="form-control" name='Email' placeholder="Correo electrónico"
-                                    aria-label="Username" aria-describedby="addon-wrapping" />
-                            </div>
-                            <!--Botón de contraseña-->
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping2">🔑</span>
-                                <input type="password" name='password' class="form-control" placeholder="Contraseña"
-                                    aria-label="password" aria-describedby="addon-wrapping" />
-                            </div>
-                            <div class="d-grid gap-2 mb-3">
-                                <button class="btn btn-primary" type="submit" >Iniciar sesión</button>
-                            </div>
+                        <!--Botón de contraseña-->
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping2">🔑</span>
+                            <input type="password" name='password' class="form-control" placeholder="Contraseña"
+                                aria-label="password" aria-describedby="addon-wrapping" />
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                            <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+                        </div>
 
 
-                            <div class="card-footer">
-                                <span class="cuenta">¿No tienes cuenta? </span><br><a href="./registro.php"> Regístrate</a>
-                            </div>
+                        <div class="card-footer">
+                            <span class="cuenta">¿No tienes cuenta? </span><br><a href="./registro.php"> Regístrate</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
+    </form>
 
     </div>
 
