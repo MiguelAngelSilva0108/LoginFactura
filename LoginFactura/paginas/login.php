@@ -57,7 +57,7 @@
 
 
                             <div class="card-footer">
-                                <span>¿No tienes cuenta?</span> <a href="./registro.php">Regístrate</a>
+                                <span class="cuenta">¿No tienes cuenta? </span><br><a href="./registro.php"> Regístrate</a>
                             </div>
                         </div>
                     </div>
