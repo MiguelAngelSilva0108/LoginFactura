@@ -1,3 +1,40 @@
+<?php
+
+  require '../database/database.php';
+
+  $message = '';
+
+  if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) && !empty($_POST['Celular']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['Servicio']) && !empty($_POST['Calle']) && !empty($_POST['Colonia']) && !empty($_POST['NumExt']) && !empty($_POST['Municipio']) && !empty($_POST['CP']) && !empty($_POST['Estado'])) {
+
+    $sql = "INSERT INTO users (Nombres, AP, AM, Celular, email, password, Servicio, Calle, Colonia, NumInt, NumExt, Municipio, CP, Estado) VALUES (:Nombres, :AP, :AM, :Celular, :email, :password, :Servicio, :Calle, :Colonia, :NumInt, :NumExt, :Municipio, :CP, :Estado)";
+    $stmt = $conn->prepare($sql);
+    
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+  
+    $stmt->bindParam(':Nombres', $_POST['Nombres']);
+    $stmt->bindParam(':AP', $_POST['AP']);
+    $stmt->bindParam(':AM', $_POST['AM']);
+    $stmt->bindParam(':Celular', $_POST['Celular']);
+    $stmt->bindParam(':email', $_POST['email']);
+    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':Servicio', $_POST['Servicio']);
+    $stmt->bindParam(':Calle', $_POST['Calle']);
+    $stmt->bindParam(':Colonia', $_POST['Colonia']);
+    $stmt->bindParam(':NumInt', $_POST['NumInt']);
+    $stmt->bindParam(':NumExt', $_POST['NumExt']);
+    $stmt->bindParam(':Municipio', $_POST['Municipio']);
+    $stmt->bindParam(':CP', $_POST['CP']);
+    $stmt->bindParam(':Estado', $_POST['Estado']);
+  
+    if ($stmt->execute()) {
+      $message = 'Successfully created new user';
+    } else {
+      $message = 'Sorry there must have been an issue creating your account';
+    }
+  }
+  
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +63,7 @@
 
 
         <div class='registro'>
-            <form>
+            <form action="registro.php" method="POST">
                 <div class="row">
                     <div class="col-sm-6 col-lg-3 offset-15 mt-5 mx-auto">
                         <div class="card pt=5">
