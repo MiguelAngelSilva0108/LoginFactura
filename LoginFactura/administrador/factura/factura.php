@@ -33,11 +33,13 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
 </head>
 
 <body>
+     <!--Logo-->
     <a href="/LoginFactura/index.php">
         <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Logotipo_izzi_negativo.png" width="150" height="62.5" class="img-fluid img-pago" alt="...">
     </a>
     <br>
     <br>
+     <!--Encabezado-->
     <div class="container-fluid text-center border-bottom">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-4 nombre-apellido">
@@ -59,6 +61,13 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
         </div>
     </div >
 
+
+         <!--Encabezado-->
+    <div>
+        <div class="titulo-medio">
+            Datos de facturación
+        </div>
+    </div>
 </body>
 </html>
 
