@@ -61,13 +61,14 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
         </div>
     </div >
 
+    <div>
+        <p class="titulo-medio">Datos de Facturación</p>
+    </div>
+    
+    
+
 
          <!--Encabezado-->
-    <div>
-        <div class="titulo-medio">
-            Datos de facturación
-        </div>
-    </div>
 </body>
 </html>
 

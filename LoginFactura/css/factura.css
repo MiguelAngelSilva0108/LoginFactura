@@ -25,12 +25,6 @@
   
 }
 
-.titulo-medio{
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-bottom: 25px;
-}
 
 .col-divider {
     border-left: 2.5px solid black;
@@ -70,6 +64,8 @@
 .border-bottom {
     
     border-bottom: 10px solid #00CED1 !important;
-  }
+}
 
-  
+.titulo-medio{
+    color: yellow !important;
+}
