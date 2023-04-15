@@ -70,7 +70,7 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
             <p class="texto-abajo">C.P.
               <?php echo $user['CP']; ?>,
               <?php echo $user['Estado']; ?>
-            </p>
+            </p>  
           </div>
           <div class="col col-divider barras">
             Realiza tu pago escaneando este código
@@ -89,7 +89,7 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
       <!--DatosFacturación-->
 
       <div>
-        <p class="titulo-medio">Datos facturación</p>
+        <p class="titulo">Datos facturación</p>
         <p class="QR">
           Domicilio Fiscal
         </p>

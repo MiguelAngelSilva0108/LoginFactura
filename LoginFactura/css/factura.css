@@ -70,10 +70,11 @@
     border-bottom: 10px solid #00CED1 !important;
   }
 
-  .titulo-medio {
+  .titulo{
     font-size: 22px;
     font-weight: bold;
     text-align: center;
-    color: black;
+    color: yellow;
     margin: 20px 0 10px 0;
 }
+
