@@ -5,10 +5,7 @@
     object-fit: contain;
   }
   
-  .clearfix {
-    clear: both;
-  }
-  
+
   .nombre-apellido {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
@@ -73,8 +70,10 @@
     border-bottom: 10px solid #00CED1 !important;
   }
 
-  .titulo-medio{
-    color: yellow;
-  }
-  
- 
+  .titulo-medio {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    margin: 20px 0 10px 0;
+}
