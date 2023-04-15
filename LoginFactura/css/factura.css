@@ -70,5 +70,9 @@
     border-bottom: 10px solid #00CED1 !important;
   }
 
-
-
+  .titulo-medio {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1.6em;
+    text-align: center;
+  }
