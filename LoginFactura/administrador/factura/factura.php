@@ -89,7 +89,7 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
       <!--DatosFacturación-->
 
       <div>
-        <p class=" titulo-medio">Datos facturación</p>
+        <p class="titulo-medio">Datos facturación</p>
         <p class="QR">
           Domicilio Fiscal
         </p>
