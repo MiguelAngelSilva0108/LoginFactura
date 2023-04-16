@@ -91,7 +91,7 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
       <!--DatosFacturación-->
       <div>
         <p class="titulo-medio">Datos facturación</p>
-        <div class="container-fluid text-center">
+        <div class="container-fluid text-center linea-bottom">
           <div class="row justify-content-center align-items-center">
             <div class="col">
               <p class="QR">
@@ -145,14 +145,10 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
             </div>
           </div>
         </div>
-        <hr class="division">
       </div>
+      <!--Cuenta -->
+      <div></div>
     </div>
   </div>
-
-
-
-
 </body>
-
 </html>

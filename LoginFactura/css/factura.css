@@ -69,6 +69,9 @@
     border-bottom: 10px solid #00CED1 !important;
   }
 
+  .linea-bottom {
+    border-bottom: 10px solid #F6BA6F !important;
+  }
 
   .titulo-medio {
     font-family: 'Poppins', sans-serif;
