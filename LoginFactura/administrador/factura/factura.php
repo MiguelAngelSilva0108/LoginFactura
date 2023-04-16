@@ -7,6 +7,10 @@ if (!isset($_SESSION['user_id'])) {
   header('Location: /LoginFactura/login.php');
 }
 
+$mes_facturacion = $_POST['mes_facturacion'];
+$anio_facturacion = $_POST['anio_facturacion'];
+
+
 // Obtener los datos del usuario correspondiente a la sesión
 $userId = $_SESSION['user_id'];
 $records = $conn->prepare('SELECT * FROM users WHERE id_users = :userId');
@@ -137,14 +141,17 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
               </p>
               <p class="texto-fiscal2">
                 Periodo de Facturación:
+                <?php echo $mes_facturacion . '-' . $anio_facturacion; ?>
               </p>
             </div>
             <div class="col">
               <p>
-                 <img src="https://pbs.twimg.com/tweet_video_thumb/D3p2p78W0AYCXjP.jpg" class="img-fluid" alt="..." width="200" height="200" alt="..." >
+                <img class="domiizilia margen-superior"
+                  src="https://pbs.twimg.com/tweet_video_thumb/D3p2p78W0AYCXjP.jpg" class="img-fluid" alt="..."
+                  width="200" height="200" alt="...">
               </p>
-             
             </div>
+
 
           </div>
         </div>

@@ -20,7 +20,7 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
     $stmt->bindParam(':Calle', $_POST['Calle']);
     $stmt->bindParam(':Colonia', $_POST['Colonia']);
     $stmt->bindParam(':NumExt', $_POST['NumExt']);
-    if(!empty($_POST['NumInt'])) {
+    if (!empty($_POST['NumInt'])) {
         $stmt->bindParam(':NumInt', $_POST['NumInt']);
     } else {
         $stmt->bindValue(':NumInt', null, PDO::PARAM_NULL);
@@ -33,7 +33,7 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
     $stmt->bindParam(':Calle_Fiscal', $_POST['Calle_Fiscal']);
     $stmt->bindParam(':Colonia_Fiscal', $_POST['Colonia_Fiscal']);
     $stmt->bindParam(':NumExt_Fiscal', $_POST['NumExt_Fiscal']);
-    if(!empty($_POST['NumInt_Fiscal'])) {
+    if (!empty($_POST['NumInt_Fiscal'])) {
         $stmt->bindParam(':NumInt_Fiscal', $_POST['NumInt_Fiscal']);
     } else {
         $stmt->bindValue(':NumInt_Fiscal', null, PDO::PARAM_NULL);
@@ -48,7 +48,7 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
         $message = 'Sorry there must have been an issue creating your account';
     }
 
-    
+
 }
 
 
@@ -260,22 +260,22 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
                                     <label For="floatingSelect">Estado</label>
                                 </div>
 
-                                 <!--RFC-->
-                                 <div class="form-floating mb-3">
+                                <!--RFC-->
+                                <div class="form-floating mb-3">
                                     <input type="text" name='RFC' class="form-control" id="floatingInput"
                                         placeholder="name@example.com" required />
                                     <label htmlFor="floatingInput">RFC</label>
                                 </div>
                                 <div class="card-header">
-                                DATOS FISCALES
-                            </div>
+                                    DATOS FISCALES
+                                </div>
                                 <!--Dirección FISCAL-->
                                 <!--Calle y Colonia-->
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating mb-3">
-                                            <input type="text" name='Calle_Fiscal' class="form-control" id="floatingInputGrid"
-                                                placeholder="name@example.com" />
+                                            <input type="text" name='Calle_Fiscal' class="form-control"
+                                                id="floatingInputGrid" placeholder="name@example.com" />
                                             <label htmlFor="floatingInputGrid">Calle</label>
                                         </div>
                                     </div>
@@ -292,15 +292,15 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating mb-3">
-                                            <input type="text" name='NumExt_Fiscal' class="form-control" id="floatingInputGrid"
-                                                placeholder="name@example.com" />
+                                            <input type="text" name='NumExt_Fiscal' class="form-control"
+                                                id="floatingInputGrid" placeholder="name@example.com" />
                                             <label htmlFor="floatingInputGrid">Num ext</label>
                                         </div>
                                     </div>
                                     <div class="col-md">
                                         <div class="form-floating mb-3">
-                                            <input type="text" name='NumInt_Fiscal' class="form-control" id="floatingInputGrid"
-                                                placeholder="name@example.com" />
+                                            <input type="text" name='NumInt_Fiscal' class="form-control"
+                                                id="floatingInputGrid" placeholder="name@example.com" />
                                             <label htmlFor="floatingInputGrid">Num int</label>
                                         </div>
                                     </div>
@@ -317,8 +317,8 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
                                     </div>
                                     <div class="col-md">
                                         <div class="form-floating mb-3">
-                                            <input type="text" name='CP_Fiscal' class="form-control" id="floatingInputGrid"
-                                                placeholder="name@example.com" />
+                                            <input type="text" name='CP_Fiscal' class="form-control"
+                                                id="floatingInputGrid" placeholder="name@example.com" />
                                             <label htmlFor="floatingInputGrid">C.P.</label>
                                         </div>
                                     </div>
@@ -376,7 +376,8 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
                                 </div>
 
                                 <div class="card-footer">
-                                    <span>¿Ya tienes una cuenta?</span> <a href="http://localhost/LoginFactura/paginas/login.php">Inicie Sesión</a>
+                                    <span>¿Ya tienes una cuenta?</span> <a
+                                        href="http://localhost/LoginFactura/paginas/login.php">Inicie Sesión</a>
                                 </div>
                             </div>
                         </div>
@@ -390,6 +391,3 @@ if (!empty($_POST['Nombres']) && !empty($_POST['AP']) && !empty($_POST['AM']) &&
 </body>
 
 </html>
-
-
-

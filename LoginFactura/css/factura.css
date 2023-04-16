@@ -78,12 +78,13 @@
     background-color: #000;
     color: #fff;
     padding: 0.50;
-    width: 60%;
+    width: 97%;
+    margin-right: 25px;
     margin-left: 25px;
     margin-top: 10px;
     letter-spacing: 0.1em;
-    border-radius: 15px;
-    margin-bottom: -15px;
+    border-radius: 10px;
+    margin-bottom: -25px;
   }
   
   .texto-fiscal{
@@ -100,5 +101,9 @@
     line-height: 0.9; /* Ajusta este valor según tus necesidades */
     text-align: left;
     font-weight: normal;
+  }
+  
+  .margen-superior {
+    margin-bottom: 5px;
   }
   
