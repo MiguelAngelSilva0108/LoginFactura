@@ -70,7 +70,7 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
             <p class="texto-abajo">C.P.
               <?php echo $user['CP']; ?>,
               <?php echo $user['Estado']; ?>
-            </p>  
+            </p>
           </div>
           <div class="col col-divider barras">
             Realiza tu pago escaneando este código
@@ -83,34 +83,73 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
                 height="130" alt="..."></p>
           </div>
         </div>
-       
+
       </div>
 
       <!--DatosFacturación-->
 
       <div>
-      <p class="titulo-medio">Datos facturación</p>
+        <p class="titulo-medio">Datos facturación</p>
 
-        <p class="QR">
-          Domicilio Fiscal
-        </p>
-        <p class="texto-abajo">
-          <?php echo $user['Calle_Fiscal']; ?> No.
-          <?php echo $user['NumExt_Fiscal']; ?>
-          <?php if (!empty($user['NumInt_Fiscal'])) {
-            echo " #" . $user['NumInt_Fiscal'];
-          } ?>
-        </p>
-        <p class="texto-abajo">Col.
-          <?php echo $user['Colonia_Fiscal']; ?>
-        </p>
-        <p class="texto-abajo">
-          <?php echo $user['Municipio_Fiscal']; ?>
-        </p>
-        <p class="texto-abajo">C.P.
-          <?php echo $user['CP_Fiscal']; ?>,
-          <?php echo $user['Estado_Fiscal']; ?>
-        </p>
+
+        <div class="container-fluid text-center">
+          <div class="row justify-content-center align-items-center">
+            <div class="col">
+              <p class="QR">
+                Domicilio Fiscal
+              </p>
+
+              <!--DatosFiscales -->
+              <div>
+                <p class="texto-fiscal">
+                  <?php echo $user['Calle_Fiscal']; ?> No.
+                  <?php echo $user['NumExt_Fiscal']; ?>
+                  <?php if (!empty($user['NumInt_Fiscal'])) {
+                    echo " #" . $user['NumInt_Fiscal'];
+                  } ?>
+                </p>
+                <p class="texto-fiscal">Col.
+                  <?php echo $user['Colonia_Fiscal']; ?>
+                </p>
+                <p class="texto-fiscal">
+                  <?php echo $user['Municipio_Fiscal']; ?>
+                </p>
+                <p class="texto-fiscal">C.P.
+                  <?php echo $user['CP_Fiscal']; ?>,
+                  <?php echo $user['Estado_Fiscal']; ?>
+                </p>
+
+              </div>
+
+            </div>
+            <div class="col">
+              <p class="QR">
+                Datos de servicio
+              </p>
+              <p class="texto-fiscal2">Teléfono:
+                <?php echo $user['Celular']; ?>
+              </p>
+              <p class="texto-fiscal2">No.Cuenta:
+                <?php echo $user['id_users']; ?>
+              </p>
+              <p class="texto-fiscal2">Paquete:
+                <?php echo $user['Servicio']; ?>
+              </p>
+              <p class="texto-fiscal2">
+                Periodo de Facturación:
+              </p>
+            </div>
+            <div class="col">
+              <p>
+                 <img src="https://pbs.twimg.com/tweet_video_thumb/D3p2p78W0AYCXjP.jpg" class="img-fluid" alt="..." width="200" height="200" alt="..." >
+              </p>
+             
+            </div>
+
+          </div>
+        </div>
+
+
 
       </div>
 
