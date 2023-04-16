@@ -87,22 +87,16 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
                 height="130" alt="..."></p>
           </div>
         </div>
-
       </div>
-
       <!--DatosFacturación-->
-
       <div>
         <p class="titulo-medio">Datos facturación</p>
-
-
         <div class="container-fluid text-center">
           <div class="row justify-content-center align-items-center">
             <div class="col">
               <p class="QR">
                 Domicilio Fiscal
               </p>
-
               <!--DatosFiscales -->
               <div>
                 <p class="texto-fiscal">
@@ -122,9 +116,7 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
                   <?php echo $user['CP_Fiscal']; ?>,
                   <?php echo $user['Estado_Fiscal']; ?>
                 </p>
-
               </div>
-
             </div>
             <div class="col">
               <p class="QR">
@@ -151,17 +143,10 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
                   width="200" height="200" alt="...">
               </p>
             </div>
-
-
           </div>
         </div>
-
-
-
+        <hr class="division">
       </div>
-
-
-
     </div>
   </div>
 
