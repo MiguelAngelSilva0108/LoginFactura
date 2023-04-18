@@ -1,6 +1,8 @@
 <?php
 
 ob_start();
+
+
 ?>
 <?php
 require('../../database/database.php');
@@ -42,6 +44,162 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <link rel="stylesheet" href="/LoginFactura/css/factura.css">
+  <style>
+    .img-pago {
+  margin-top: 10px;
+  float: left;
+  min-height: 50px;
+  object-fit: contain;
+}
+
+.nombre-apellido {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+.full-width {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container-fluid {
+  margin-top: 40px;
+}
+
+.col-divider {
+  border-left: 2.5px solid black;
+  height: 150px;
+}
+
+.texto-abajo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  text-align: justify;
+  margin-left: 25px;
+  font-weight: normal;
+  /* Elimina la negrita */
+}
+
+.nombre-apellido .texto-abajo {
+  margin-bottom: 0rem;
+  /* ajusta aquí el valor del margen inferior */
+}
+
+.barras {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+
+}
+
+.QR {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 25px;
+}
+
+.large {
+  font-size: 2em;
+}
+
+.border-bottom {
+  border-bottom: 10px solid #00CED1 !important;
+}
+
+.linea-bottom {
+  border-bottom: 10px solid #F6BA6F !important;
+}
+
+.negra-bottom {
+  border-bottom: 5px solid black !important;
+  margin-bottom: -30px;
+}
+
+.titulo-medio {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1.4em;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  padding: 0.50;
+  width: 97%;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-top: 10px;
+  letter-spacing: 0.1em;
+  border-radius: 10px;
+  margin-bottom: -25px;
+}
+
+.texto-fiscal {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  line-height: 0.9;
+  /* Ajusta este valor según tus necesidades */
+  text-align: left;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+.texto-fiscal2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  line-height: 0.9;
+  /* Ajusta este valor según tus necesidades */
+  text-align: left;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+.texto-fiscal3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  line-height: 0.9;
+  /* Ajusta este valor según tus necesidades */
+  text-align: left;
+  font-weight: bold;
+}
+
+.margen-superior {
+  margin-bottom: 5px;
+}
+
+.division {
+  border: none;
+  border-top: 10px solid black !important;
+  /* aquí puedes ajustar el color naranja cambiando el valor hexadecimal */
+  margin: 20px 0;
+}
+
+.cuenta-texto {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.total {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background-color: turquoise;
+  text-align: right;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+  </style>
 </head>
 
 <body>
@@ -259,13 +417,16 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
 
 </html>
 
+
 <?php
 $html = ob_get_clean();
-//echo $html;
 
+$css_file = dirname(__FILE__) . '/css/factura.css';
+$html_with_css = '<link rel="stylesheet" type="text/css" href="' . $css_file . '">'.$html;
 require_once '../Libreria/autoload.inc.php';
 use Dompdf\Dompdf;
-$dompdf = new Dompdf ();
+$dompdf = new Dompdf();
+
 
 $options = $dompdf->getOptions();
 $options->set(array(
