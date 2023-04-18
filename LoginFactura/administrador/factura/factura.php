@@ -1,4 +1,8 @@
 <?php
+
+ob_start();
+?>
+<?php
 require('../../database/database.php');
 
 // Verificar si el usuario ha iniciado sesión
@@ -37,7 +41,7 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../css/factura.css">
+  <link rel="stylesheet" href="/LoginFactura/css/factura.css">
 </head>
 
 <body>
@@ -254,3 +258,31 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
 </body>
 
 </html>
+
+<?php
+$html = ob_get_clean();
+//echo $html;
+
+require_once '../Libreria/autoload.inc.php';
+use Dompdf\Dompdf;
+$dompdf = new Dompdf ();
+
+$options = $dompdf->getOptions();
+$options->set(array(
+    'isRemoteEnabled' => true,
+    'isHtml5ParserEnabled' => true
+));
+$dompdf->setOptions($options);
+
+$options = $dompdf->getOptions();
+$options->set(array('isRemoteEnabled' => true));
+$dompdf->setOptions($options);
+
+$dompdf->loadHTML("$html");
+
+$dompdf->setPaper('letter');
+
+$dompdf->render();
+
+$dompdf->stream("factura.pdf", array("Attachament" => false));
+?>
