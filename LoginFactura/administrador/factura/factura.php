@@ -24,6 +24,8 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -147,8 +149,108 @@ $user = $records->fetch(PDO::FETCH_ASSOC);
         </div>
       </div>
       <!--Cuenta -->
-      <div></div>
+      <div>
+        <div>
+          <p class="cuenta-texto">Detalle de tus servicios contratados y facturados </p>
+        </div>
+        <div>
+          <div class="container-fluid text-center negra-bottom">
+            <div class="row justify-content-center align-items-center">
+              <!--Columna 1-->
+              <div class="col-md-6">
+                <p class="texto-fiscal3">Paquete:
+                  <?php echo $user['Servicio']; ?>
+                </p>
+                <p class="texto-fiscal2">
+                  Extensiones
+                </p>
+                <p class="texto-fiscal2">
+                  Complementos de video
+                </p>
+                <p class="texto-fiscal2">
+                  Complementos de internet
+                </p>
+              </div>
+              <!--Columna 2 subtotal-->
+              <div class="col-md-3">
+                <br>
+              </div>
+              <!--Columna 3 precio-->
+              <div class="col-md-3">
+                <p class="texto-fiscal2">
+                  <?php
+                  $precio_internet_telefonia_30_mb = 400;
+                  $precio_internet_telefonia_50_mb = 550;
+                  $precio_internet_telefonia_100_mb = 650;
+                  $precio_internet_telefonia_izzitv_50_mb = 700;
+
+                  switch ($user['Servicio']) {
+                    case 'Internet + Telefonía 30 MB':
+                      $precio = $precio_internet_telefonia_30_mb;
+                      break;
+                    case 'Internet + Telefonía 50 MB':
+                      $precio = $precio_internet_telefonia_50_mb;
+                      break;
+                    case 'Internet + Telefonía 100MB':
+                      $precio = $precio_internet_telefonia_100_mb;
+                      break;
+                    case 'Internet + Telefonía + izzitv 50MB':
+                      $precio = $precio_internet_telefonia_izzitv_50_mb;
+                      break;
+                    default:
+                      $precio = 0; // Si no se encuentra en ninguna de las opciones anteriores, se asigna un precio de cero
+                  }
+                  ?>
+                  $
+                  <?php echo $precio; ?>.00
+                </p>
+                <p class="texto-fiscal2">
+                  $0.00
+                </p>
+                <p class="texto-fiscal2">
+                  $0.00
+                </p>
+                <p class="texto-fiscal2">
+                  $0.00
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Columna 2 subtotal-->
+        <div>
+          <div class="container-fluid text-center">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-md-6">
+                <br>
+              </div>
+              <div class="col-md-3">
+                <p class="texto-fiscal2">
+                  Subtotal
+                </p>
+              </div>
+              <div class="col-md-3">
+                <p class="texto-fiscal2">
+                  $
+                  <?php echo $precio; ?>.00
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Total-->
+        <div class="container">
+          <br>
+          <p class="total">
+            Total de cargos del periodo: $
+            <?php echo $precio; ?>.00
+          </p>
+        </div>
+        
+
+      </div>
     </div>
   </div>
 </body>
+
 </html>
